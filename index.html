@@ -8,25 +8,9 @@
     <link rel="icon" type="image/png" sizes="84x74" href="logo_atma_luhur.png">
     <link rel="shortcut icon" type="image/png" href="logo_atma_luhur.png">
     <link rel="apple-touch-icon" href="logo_atma_luhur.png">
-    <!-- Tambahkan ini untuk Icon Ramadhan -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-    /* 
-       TEMA RAMADHAN MODE TERANG (Light Mode)
-       - Background: Cream & Putih
-       - Aksen: Masjid, Bulan, Bintang Emas
-    */
-    :root {
-        --ramadhan-bg: #fffbeb; /* Cream (Langit siang hangat) */
-        --ramadhan-text: #1c1917; /* Hitam/Abu gelap untuk teks */
-        --ramadhan-primary: #047857; /* Emerald Green */
-        --ramadhan-dark: #022c22; /* Deep Green */
-        --ramadhan-accent: #d97706; /* Gold */
-        --ramadhan-card-bg: #ffffff; /* Putih bersih */
-    }
-
     * {
         box-sizing: border-box;
     }
@@ -35,70 +19,19 @@
         font-family: 'Poppins', sans-serif;
         margin: 0;
         padding: 0;
-        background-color: var(--ramadhan-bg);
-        color: var(--ramadhan-text);
-        overflow-x: hidden;
-        position: relative;
-        
-        /* 1. POLA BINTANG EMAS DI LANGIT KREM */
-        background-image: 
-            radial-gradient(var(--ramadhan-accent) 1.5px, transparent 1.5px),
-            radial-gradient(#d1d5db 1px, transparent 1px); /* Abu muda untuk variasi */
-        background-size: 40px 40px;
-        background-position: 0 0, 20px 20px;
-        background-attachment: fixed;
+        background-color: #f1f5f9;
+        color: #1e293b;
     }
 
-    /* 2. BULAN SABIT RAKSASA (Top Right) - Warna Emas Lembut */
-    body::before {
-        content: "\f186"; /* Unicode Bulan */
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        position: fixed;
-        top: -10%;
-        right: -10%;
-        font-size: 70rem;
-        color: var(--ramadhan-accent);
-        opacity: 0.05; /* Sangat transparan */
-        z-index: -1;
-        transform: rotate(-15deg);
-        pointer-events: none;
-        filter: blur(1px);
-    }
-
-    /* 3. LENTERA (Bottom Left) - Aksen Emas */
-    body::after {
-        content: "\f4f5"; /* Unicode Lentera */
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        position: fixed;
-        bottom: -5%;
-        left: -5%;
-        font-size: 30rem;
-        color: var(--ramadhan-accent);
-        opacity: 0.04;
-        z-index: -1;
-        animation: swingBackground 15s ease-in-out infinite;
-        transform-origin: top center;
-        pointer-events: none;
-    }
-
-    @keyframes swingBackground {
-        0%, 100% { transform: rotate(-5deg) translateX(0); }
-        50% { transform: rotate(5deg) translateX(30px); }
-    }
-
-    /* Judul Section */
     h2 {
         text-align: center;
         font-size: 1.6rem;
         font-weight: 600;
         margin: 40px 20px 18px;
-        color: var(--ramadhan-dark);
+        color: #0f172a;
         letter-spacing: -0.3px;
         position: relative;
         padding-bottom: 10px;
-        z-index: 2;
     }
 
     h2::after {
@@ -106,58 +39,40 @@
         display: block;
         width: 70px;
         height: 2.5px;
-        background: linear-gradient(to right, var(--ramadhan-primary), var(--ramadhan-accent));
+        background: linear-gradient(to right, #2563eb, #60a5fa);
         margin: 12px auto 0;
         border-radius: 2px;
     }
-    
     h2 span.gradient {
-        background: linear-gradient(to right, var(--ramadhan-primary), var(--ramadhan-dark));
+        background: linear-gradient(to right, #2563eb, #1e40af);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-
     .zoom-icon {
         height: 30px;
         vertical-align: middle;
         margin-right: 10px;
     }
 
-    /* 
-       KOTAK JUDUL UTAMA 
-       Background Putih dengan Watermark Masjid di belakang
-    */
     .judul {
         text-align: center;
         font-size: 1.9rem;
         font-weight: 700;
-        color: var(--ramadhan-dark);
+        color: #0f172a;
         margin: 40px 20px 30px;
-        padding: 45px 20px;
+        padding: 32px 20px;
         line-height: 1.3;
         border-radius: 20px;
-        background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%); /* Putih ke Hijau muda */
-        box-shadow: 0 10px 30px rgba(4, 120, 87, 0.1);
-        border: 1px solid rgba(4, 120, 87, 0.1);
-        position: relative;
-        z-index: 1;
-        overflow: hidden; /* Agar masjid tetap di dalam */
+        background: linear-gradient(-45deg, #eff6ff, #dbeafe, #bfdbfe, #93c5fd);
+        background-size: 400% 400%;
+        animation: gradientFlow 10s ease infinite;
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.05);
     }
-
-    /* WATERMARK MASJID (Di belakang teks Judul) */
-    .judul::before {
-        content: "\f678"; /* Unicode MASJID */
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 9rem;
-        color: var(--ramadhan-dark); /* Hijau Tua */
-        opacity: 0.06; /* Sangat tipis agar tidak mengganggu teks */
-        z-index: -1;
-        text-shadow: none;
+    
+    @keyframes gradientFlow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
 
     .judul::after {
@@ -165,7 +80,7 @@
         display: block;
         width: 80px;
         height: 4px;
-        background: linear-gradient(to right, var(--ramadhan-primary), var(--ramadhan-accent));
+        background: linear-gradient(to right, #2563eb, #1e3a8a);
         margin: 16px auto 0;
         border-radius: 4px;
     }
@@ -173,40 +88,37 @@
     .subjudul {
         font-size: 0.80rem;
         font-weight: 500;
-        color: #57534e;
-        margin-top: 5px;
+        color: #475569;
     }
 
     .gradient {
-        background: linear-gradient(to right, var(--ramadhan-primary), var(--ramadhan-dark));
+        background: linear-gradient(to right, #2563eb, #1e40af);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
-    /* Tombol Back to Top */
     #btnTop {
         position: fixed;
         bottom: 30px;
         right: 30px;
         z-index: 99;
         font-size: 20px;
-        background-color: var(--ramadhan-primary);
+        background-color: #0f172a;
         color: white;
         border: none;
         padding: 14px 18px;
         border-radius: 50%;
         cursor: pointer;
         display: none;
-        box-shadow: 0 4px 12px rgba(4, 120, 87, 0.3);
-        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease, transform 0.2s;
     }
 
     #btnTop:hover {
-        background-color: var(--ramadhan-dark);
+        background-color: #1e293b;
         transform: scale(1.1);
     }
 
-    /* Tabs */
     .tab-container {
         margin-top: 25px;
         padding: 0 20px;
@@ -215,46 +127,40 @@
         flex-wrap: wrap;
         justify-content: center;
         margin-bottom: 30px;
-        position: relative;
-        z-index: 1;
     }
 
     .tab-button {
         padding: 12px 24px;
-        background-color: white;
-        border: 1px solid #e5e7eb;
-        border-radius: 50px;
+        background-color: #e2e8f0;
+        border: none;
+        border-radius: 8px;
         font-size: 1rem;
         font-weight: 600;
-        color: #57534e;
+        color: #1e293b;
         cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        transition: all 0.2s ease;
     }
 
     .tab-button:hover {
-        background-color: #f0fdf4;
-        color: var(--ramadhan-primary);
-        border-color: var(--ramadhan-primary);
+        background-color: #dbeafe;
+        color: #1e3a8a;
         transform: translateY(-2px);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
     }
 
     .tab-button.active {
-        background-color: var(--ramadhan-primary);
+        background-color: #1e3a8a;
         color: white;
-        border-color: var(--ramadhan-primary);
-        box-shadow: 0 4px 12px rgba(4, 120, 87, 0.3);
+        box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
         transform: translateY(-2px);
     }
 
     .tab-content {
         display: none;
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(-20px);
         transition: all 0.5s ease;
         padding-top: 10px;
-        position: relative;
-        z-index: 1;
     }
 
     .tab-content.active {
@@ -265,27 +171,13 @@
 
     .page-footer {
         margin-top: 60px;
-        padding: 45px 16px 20px; /* Padding atas ditambah agar muat deretan ikon */
+        padding: 20px 16px;
         text-align: center;
         font-size: 0.85rem;
-        background-color: var(--ramadhan-dark); /* Hijau Tua */
-        color: #d1fae5; /* Hijau Muda untuk teks */
-        border-top: 4px solid var(--ramadhan-accent); /* Garis Emas */
-        position: relative;
-        z-index: 2;
-    }
-
-    .page-footer::before {
-        /* Kombinasi: Bulan - Bintang - Masjid - Bintang - Bulan */
-        content: "\f186 \f005 \f678 \f005 \f186";
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        display: block;
-        font-size: 1.5rem; /* Ukuran ikon diperbesar sedikit */
-        color: var(--ramadhan-accent); /* Warna Emas */
-        margin-bottom: 15px;
-        letter-spacing: 10px; /* Jarak antar icon agar tidak terlalu berdempet */
-        text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Bayangan halus agar ikon terlihat timbul */
+        background-color: #f1f5f9;
+        color: #64748b;
+        border-top: 1px solid #e2e8f0;
+        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.02);
     }
 
     @keyframes fadeIn {
@@ -296,40 +188,20 @@
     .top-bar {
         width: 100%;
         height: 12px;
-        background: linear-gradient(90deg, var(--ramadhan-dark), var(--ramadhan-primary), var(--ramadhan-accent), var(--ramadhan-primary), var(--ramadhan-dark));
-        background-size: 200% 100%;
-        animation: shimmer 5s infinite linear;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        background: linear-gradient(to right, #0f172a, #2563eb);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         position: relative;
         z-index: 1000;
     }
-
-    @keyframes shimmer {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
-    }
-
     .logo-container {
         text-align: center;
         margin-top: 20px;
-        position: relative;
-        z-index: 2;
     }
     
     .logo {
         max-width: 120px;
         height: auto;
         margin-bottom: 10px;
-        border-radius: 50%;
-        padding: 5px;
-        background: white;
-        border: 2px solid var(--ramadhan-accent);
-        box-shadow: 0 4px 10px rgba(217, 119, 6, 0.2);
-        transition: transform 0.3s ease;
-    }
-
-    .logo:hover {
-        transform: scale(1.05) rotate(5deg);
     }
 
     /* Popup Styles */
@@ -339,12 +211,11 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(2, 44, 34, 0.8); /* Overlay hijau gelap transparan */
-        backdrop-filter: blur(4px);
+        background-color: rgba(0, 0, 0, 0.7);
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 2000;
+        z-index: 1000;
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
@@ -356,19 +227,17 @@
     }
 
     .popup-content {
-        background-color: white; /* Putih */
+        background-color: white;
         border-radius: 20px;
         padding: 40px;
         max-width: 700px;
         width: 90%;
         max-height: 80vh;
         overflow-y: auto;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         transform: scale(0.7);
         transition: all 0.3s ease;
         position: relative;
-        border: 1px solid var(--ramadhan-accent);
-        color: var(--ramadhan-text);
     }
 
     .popup-overlay.active .popup-content {
@@ -380,30 +249,31 @@
         top: 15px;
         right: 20px;
         font-size: 30px;
-        color: #9ca3af;
+        color: #64748b;
         cursor: pointer;
         transition: color 0.2s ease;
     }
 
     .popup-close:hover {
-        color: var(--ramadhan-primary);
+        color: #1e293b;
     }
 
     .popup-header {
         text-align: center;
         margin-bottom: 25px;
-        border-bottom: 1px solid #f3f4f6;
-        padding-bottom: 15px;
     }
 
     .popup-header h3 {
         font-size: 1.8rem;
-        color: var(--ramadhan-dark);
+        color: #1e293b;
         margin: 0 0 10px;
+        background: linear-gradient(to right, #2563eb, #1e40af);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .popup-header p {
-        color: #6b7280;
+        color: #64748b;
         margin: 0;
         font-size: 1rem;
     }
@@ -414,10 +284,10 @@
 
     .popup-info h4 {
         font-size: 1.2rem;
-        color: var(--ramadhan-dark);
+        color: #1e293b;
         margin-bottom: 15px;
         padding-bottom: 8px;
-        border-bottom: 2px solid #f3f4f6;
+        border-bottom: 2px solid #e2e8f0;
     }
 
     .popup-info ul {
@@ -430,32 +300,30 @@
         padding: 8px 0;
         display: flex;
         align-items: center;
-        color: #4b5563;
     }
 
     .popup-info li:before {
-        content: "\f005"; 
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        color: var(--ramadhan-accent);
+        content: "•";
+        color: #2563eb;
+        font-weight: bold;
         margin-right: 10px;
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
 
     .popup-note {
-        background-color: #fffbeb;
-        border-left: 4px solid var(--ramadhan-accent);
+        background-color: #f1f5f9;
+        border-left: 4px solid #2563eb;
         padding: 15px;
         border-radius: 8px;
         margin-top: 20px;
-        color: #92400e;
+        color: #475569;
     }
 
     .popup-button {
         display: block;
         width: 100%;
         padding: 12px 20px;
-        background: var(--ramadhan-primary);
+        background: linear-gradient(to right, #2563eb, #1e40af);
         color: white;
         border: none;
         border-radius: 8px;
@@ -464,74 +332,61 @@
         cursor: pointer;
         transition: all 0.3s ease;
         margin-top: 25px;
-        box-shadow: 0 4px 10px rgba(4, 120, 87, 0.2);
     }
 
     .popup-button:hover {
-        background-color: var(--ramadhan-dark);
         transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
     }
 
-    /* Warning Box */
+    /* Tambahkan CSS untuk peringatan penting */
     .popup-warning {
         display: flex;
         align-items: center;
-        background: linear-gradient(135deg, var(--ramadhan-accent), #b45309);
-        border-radius: 16px;
-        padding: 20px 25px;
+        background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+        border-radius: 12px;
+        padding: 16px 20px;
         margin: 0 0 25px 0;
-        box-shadow: 0 8px 20px rgba(217, 119, 6, 0.3);
+        box-shadow: 0 8px 20px rgba(238, 90, 36, 0.3);
         position: relative;
         overflow: hidden;
-        color: white;
     }
 
     .popup-warning::before {
         content: '';
         position: absolute;
-        top: -50%; left: -50%; width: 200%; height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-        animation: rotateLight 4s linear infinite;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
+        background-size: 30px 30px;
+        animation: warning-move 1s linear infinite;
     }
-    
-    @keyframes rotateLight {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+
+    @keyframes warning-move {
+        0% { background-position: 0 0; }
+        100% { background-position: 30px 30px; }
     }
 
     .popup-warning-icon {
-        font-size: 0;
-        width: 40px;
-        height: 40px;
-        margin-right: 20px;
-        position: relative;
-        z-index: 2;
-        flex-shrink: 0;
+        font-size: 28px;
+        margin-right: 15px;
+        animation: pulse 1.5s infinite;
     }
 
-    .popup-warning-icon::after {
-        content: "\f4f5"; 
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        font-size: 2rem;
-        color: white;
-        display: block;
-        filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
-        animation: swing 3s ease-in-out infinite;
-        transform-origin: top center;
-    }
-
-    @keyframes swing {
-        0%, 100% { transform: rotate(-5deg); }
-        50% { transform: rotate(5deg); }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
     }
 
     .popup-warning-text {
+        color: white;
         font-weight: 700;
         font-size: 1.1rem;
         text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         letter-spacing: 0.5px;
-        z-index: 2;
     }
 
     /* Card Schedule Styles */
@@ -540,16 +395,14 @@
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 20px;
         margin: 0 20px;
-        position: relative;
-        z-index: 1;
     }
 
     .schedule-card {
-        background: var(--ramadhan-card-bg);
+        background: white;
         border-radius: 16px;
         padding: 24px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        border: 1px solid #f3f4f6;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #3b82f6;
         opacity: 0;
         transform: translateY(20px);
         transition: all 0.5s ease;
@@ -558,24 +411,9 @@
         overflow: hidden;
     }
 
-    /* Bintang Dekoratif di Pojok Kartu */
-    .schedule-card::after {
-        content: "\f005"; 
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        font-size: 1.2rem;
-        color: var(--ramadhan-accent);
-        opacity: 0.2;
-        z-index: 0;
-    }
-
     .schedule-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-        border-color: var(--ramadhan-primary);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
     }
 
     .tab-content.active .schedule-card {
@@ -586,9 +424,12 @@
     .schedule-card::before {
         content: "";
         position: absolute;
-        top: 0; left: 0; width: 100%; height: 5px;
-        background: var(--ramadhan-primary);
-        z-index: 0;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+        border-radius: 0 0 0 100px;
     }
 
     .card-header {
@@ -596,24 +437,22 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 16px;
-        position: relative;
-        z-index: 1;
     }
 
     .card-day {
-        background: rgba(4, 120, 87, 0.1);
-        color: var(--ramadhan-primary);
+        background: linear-gradient(135deg, #3b82f6, #1e40af);
+        color: white;
         padding: 6px 14px;
         border-radius: 20px;
         font-weight: 600;
         font-size: 0.9rem;
-        border: 1px solid rgba(4, 120, 87, 0.2);
+        box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
     }
 
     .card-time {
         display: flex;
         align-items: center;
-        color: #6b7280;
+        color: #64748b;
         font-size: 0.9rem;
         font-weight: 500;
     }
@@ -626,28 +465,21 @@
     .card-title {
         font-size: 1.1rem;
         font-weight: 600;
-        color: var(--ramadhan-dark);
+        color: #1e293b;
         margin-bottom: 8px;
         line-height: 1.3;
-        position: relative;
-        z-index: 1;
     }
 
     .card-code {
-        color: var(--ramadhan-primary);
+        color: #64748b;
         font-size: 0.85rem;
         margin-bottom: 16px;
-        font-weight: 600;
-        position: relative;
-        z-index: 1;
     }
 
     .card-info {
         display: flex;
         flex-direction: column;
         gap: 12px;
-        position: relative;
-        z-index: 1;
     }
 
     .card-info-item {
@@ -662,31 +494,28 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--ramadhan-primary);
+        color: #3b82f6;
     }
 
     .card-info-item .text {
-        color: #4b5563;
+        color: #475569;
         font-size: 0.9rem;
     }
 
     .card-room {
-        background-color: #f9fafb;
+        background-color: #f1f5f9;
         padding: 6px 12px;
         border-radius: 8px;
         font-weight: 500;
-        color: var(--ramadhan-dark);
+        color: #1e293b;
         display: inline-block;
         margin-top: 8px;
-        border: 1px solid #e5e7eb;
     }
 
     .card-footer {
         margin-top: 20px;
         padding-top: 16px;
-        border-top: 1px solid #f3f4f6;
-        position: relative;
-        z-index: 1;
+        border-top: 1px solid #e2e8f0;
     }
 
     .zoom-info {
@@ -698,13 +527,13 @@
     }
 
     .zoom-details {
-        color: var(--ramadhan-primary);
+        color: #0369a1;
         font-size: 0.85rem;
     }
 
     .zoom-btn {
         padding: 8px 16px;
-        background: var(--ramadhan-primary);
+        background: linear-gradient(135deg, #3b82f6, #1e40af);
         color: white;
         border: none;
         border-radius: 8px;
@@ -715,12 +544,12 @@
         display: inline-flex;
         align-items: center;
         transition: all 0.2s ease;
-        box-shadow: 0 2px 5px rgba(4, 120, 87, 0.2);
+        box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
     }
 
     .zoom-btn:hover {
-        background-color: var(--ramadhan-dark);
         transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
     }
 
     .zoom-icon {
@@ -728,12 +557,11 @@
         margin-right: 6px;
     }
 
+    /* Tambahkan CSS untuk foto dosen */
     .lecturer-info-container {
         display: flex;
         align-items: center;
         margin-bottom: 16px;
-        position: relative;
-        z-index: 1;
     }
 
     .lecturer-photo {
@@ -741,7 +569,7 @@
         height: 95px;
         border-radius: 50%;
         object-fit: cover;
-        border: 3px solid #e5e7eb;
+        border: 3px solid #e2e8f0;
         margin-right: 8px;
         flex-shrink: 0;
     }
@@ -750,7 +578,7 @@
         flex-grow: 1;
     }
     .lecturer-email {
-        color: var(--ramadhan-primary);
+        color: #0369a1;
         font-size: 0.80rem;
         display: flex;
         align-items: center;
@@ -759,46 +587,117 @@
 
     .lecturer-email .icon {
         margin-right: 12px;
-        color: var(--ramadhan-primary);
+        color: #3b82f6;
     }
 
-    /* Warna Kartu Variasi */
-    .schedule-card.blue { border-top: 5px solid #3b82f6; }
-    .schedule-card.blue .card-day { color: #2563eb; background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2); }
-    .schedule-card.blue .card-info-item .icon { color: #3b82f6; }
-    .schedule-card.blue .zoom-btn { background: #3b82f6; }
-    .schedule-card.blue::before { background: #3b82f6; }
-    
-    .schedule-card.purple { border-top: 5px solid #8b5cf6; }
-    .schedule-card.purple .card-day { color: #7c3aed; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.2); }
-    .schedule-card.purple .card-info-item .icon { color: #8b5cf6; }
-    .schedule-card.purple .zoom-btn { background: #8b5cf6; }
-    .schedule-card.purple::before { background: #8b5cf6; }
+    /* Warna gradasi untuk setiap kartu */
+    .schedule-card.blue {
+        border-left: 5px solid #3b82f6;
+    }
+    .schedule-card.blue .card-day {
+        background: linear-gradient(135deg, #3b82f6, #1e40af);
+        box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+    }
+    .schedule-card.blue .card-info-item .icon {
+        color: #3b82f6;
+    }
+    .schedule-card.blue .zoom-btn {
+        background: linear-gradient(135deg, #3b82f6, #1e40af);
+        box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+    }
+    .schedule-card.blue::before {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    }
 
-    .schedule-card.green { border-top: 5px solid #10b981; }
-    .schedule-card.green .card-day { color: #059669; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); }
-    .schedule-card.green .card-info-item .icon { color: #10b981; }
-    .schedule-card.green .zoom-btn { background: #10b981; }
-    .schedule-card.green::before { background: #10b981; }
+    .schedule-card.purple {
+        border-left: 5px solid #8b5cf6;
+    }
+    .schedule-card.purple .card-day {
+        background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+        box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+    }
+    .schedule-card.purple .card-info-item .icon {
+        color: #8b5cf6;
+    }
+    .schedule-card.purple .zoom-btn {
+        background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+        box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+    }
+    .schedule-card.purple::before {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    }
 
-    .schedule-card.orange { border-top: 5px solid var(--ramadhan-accent); }
-    .schedule-card.orange .card-day { color: #d97706; background: rgba(217, 119, 6, 0.1); border-color: rgba(217, 119, 6, 0.2); }
-    .schedule-card.orange .card-info-item .icon { color: var(--ramadhan-accent); }
-    .schedule-card.orange .zoom-btn { background: var(--ramadhan-accent); }
-    .schedule-card.orange::before { background: var(--ramadhan-accent); }
+    .schedule-card.green {
+        border-left: 5px solid #10b981;
+    }
+    .schedule-card.green .card-day {
+        background: linear-gradient(135deg, #10b981, #047857);
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+    }
+    .schedule-card.green .card-info-item .icon {
+        color: #10b981;
+    }
+    .schedule-card.green .zoom-btn {
+        background: linear-gradient(135deg, #10b981, #047857);
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+    }
+    .schedule-card.green::before {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    }
 
-    .schedule-card.pink { border-top: 5px solid #ec4899; }
-    .schedule-card.pink .card-day { color: #db2777; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.2); }
-    .schedule-card.pink .card-info-item .icon { color: #ec4899; }
-    .schedule-card.pink .zoom-btn { background: #ec4899; }
-    .schedule-card.pink::before { background: #ec4899; }
+    .schedule-card.orange {
+        border-left: 5px solid #f97316;
+    }
+    .schedule-card.orange .card-day {
+        background: linear-gradient(135deg, #f97316, #c2410c);
+        box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+    }
+    .schedule-card.orange .card-info-item .icon {
+        color: #f97316;
+    }
+    .schedule-card.orange .zoom-btn {
+        background: linear-gradient(135deg, #f97316, #c2410c);
+        box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+    }
+    .schedule-card.orange::before {
+        background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    }
 
-    .schedule-card.teal { border-top: 5px solid #14b8a6; }
-    .schedule-card.teal .card-day { color: #0d9488; background: rgba(20, 184, 166, 0.1); border-color: rgba(20, 184, 166, 0.2); }
-    .schedule-card.teal .card-info-item .icon { color: #14b8a6; }
-    .schedule-card.teal .zoom-btn { background: #14b8a6; }
-    .schedule-card.teal::before { background: #14b8a6; }
-    
+    .schedule-card.pink {
+        border-left: 5px solid #ec4899;
+    }
+    .schedule-card.pink .card-day {
+        background: linear-gradient(135deg, #ec4899, #be185d);
+        box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);
+    }
+    .schedule-card.pink .card-info-item .icon {
+        color: #ec4899;
+    }
+    .schedule-card.pink .zoom-btn {
+        background: linear-gradient(135deg, #ec4899, #be185d);
+        box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);
+    }
+    .schedule-card.pink::before {
+        background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    }
+
+    .schedule-card.teal {
+        border-left: 5px solid #14b8a6;
+    }
+    .schedule-card.teal .card-day {
+        background: linear-gradient(135deg, #14b8a6, #0f766e);
+        box-shadow: 0 4px 10px rgba(20, 184, 166, 0.3);
+    }
+    .schedule-card.teal .card-info-item .icon {
+        color: #14b8a6;
+    }
+    .schedule-card.teal .zoom-btn {
+        background: linear-gradient(135deg, #14b8a6, #0f766e);
+        box-shadow: 0 4px 10px rgba(20, 184, 166, 0.3);
+    }
+    .schedule-card.teal::before {
+        background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    }
     .welcome-message {
         display: flex;
         justify-content: center;
@@ -812,26 +711,23 @@
         background: white;
         padding: 40px;
         border-radius: 16px;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         max-width: 500px;
-        border-top: 5px solid var(--ramadhan-accent);
-        color: var(--ramadhan-text);
     }
 
     .message-icon {
         font-size: 3rem;
         margin-bottom: 20px;
-        color: var(--ramadhan-primary);
     }
 
     .message-content h3 {
-        color: var(--ramadhan-dark);
+        color: #1e293b;
         margin-bottom: 15px;
         font-size: 1.5rem;
     }
 
     .message-content p {
-        color: #4b5563;
+        color: #64748b;
         font-size: 1rem;
         line-height: 1.6;
     }
@@ -841,8 +737,6 @@
         height: auto;
         display: block;
         margin: 0 auto 15px;
-        border-radius: 10px;
-        border: 2px solid var(--ramadhan-accent);
     }
 
     @media (max-width: 720px) {
@@ -905,19 +799,6 @@
             width: 60px;
             height: 60px;
         }
-        
-        body::before {
-            font-size: 40rem;
-            top: 0; right: -20%;
-        }
-        body::after {
-            font-size: 20rem;
-            bottom: -10%; left: -10%;
-        }
-        .judul::before {
-            font-size: 5rem;
-            bottom: -10px;
-        }
     }
 </style>
 </head>
@@ -931,7 +812,6 @@
                 <img src="popup111.png" alt="Gambar Jadwal Kuliah" class="popup-header-image">
                 
                 <h3>Informasi Jadwal Kuliah</h3>
-                <h4>(Selama Bulan Ramadhan 1447 H / 2026 M)</h4>
                 <p>Program Studi Sistem Informasi Manajemen (Magister)</p>
                 <p>Semester Genap Tahun Akademik 2025/2026</p>
             </div>
@@ -953,13 +833,13 @@
             <div class="popup-info">
                 <h4>Hari dan Waktu Perkuliahan:</h4>
                 <ul>
-                    <li>Kamis: 16.00 - 17.00 WIB</li>
-                    <li>Jumat: 16.00 - 17.00 WIB</li>
+                    <li>Kamis: 19.00 - 21.00 WIB</li>
+                    <li>Jumat: 19.00 - 21.00 WIB</li>
                     <li>Sabtu: 
                         <ul style="margin-left: 20px; margin-top: 5px;">
-                            <li>Sesi 1: 09.00 - 10.00 WIB</li>
-                            <li>Sesi 2: 10.30 - 11.30 WIB</li>
-                            <li>Sesi 3: 12.30 - 13.30 WIB</li>
+                            <li>Sesi 1: 08.00 - 10.00 WIB</li>
+                            <li>Sesi 2: 10.30 - 12.30 WIB</li>
+                            <li>Sesi 3: 13.30 - 15.30 WIB</li>
                         </ul>
                     </li>
                 </ul>
@@ -999,7 +879,6 @@
           <img src="logo_atma_luhur.png" alt="Logo Atma Luhur" class="logo">
         </div>
         <span class="gradient">Jadwal Perkuliahan Program Pascasarjana</span><br>
-        <span class="gradient">Selama Bulan Ramadhan 1447 H / 2026 M</span><br>
         <span class="subjudul">Program Studi Sistem Informasi Manajemen (Magister Manajemen)</span><br>
         <span class="subjudul">Semester Genap Tahun Akademik 2025/2026</span>
     </h2>
@@ -1023,7 +902,7 @@
             <div class="schedule-card blue">
                 <div class="card-header">
                     <div class="card-day">Kamis</div>
-                    <div class="card-time">16.00 - 17.00</div>
+                    <div class="card-time">19.00 - 21.00</div>
                 </div>
                 <div class="card-title">Manajemen Proyek dan Perubahan</div>
                 <div class="card-code">[MSIM201]</div>
@@ -1068,7 +947,7 @@
             <div class="schedule-card purple">
                 <div class="card-header">
                     <div class="card-day">Jumat</div>
-                    <div class="card-time">16.00 - 17.00</div>
+                    <div class="card-time">19.00 - 21.00</div>
                 </div>
                 <div class="card-title">Manajemen Resiko Sistem Informasi</div>
                 <div class="card-code">[MSIM203]</div>
@@ -1113,7 +992,7 @@
             <div class="schedule-card teal">
                 <div class="card-header">
                     <div class="card-day">Sabtu</div>
-                    <div class="card-time">09.00 - 10.00</div>
+                    <div class="card-time">08.00 - 10.00</div>
                 </div>
                 <div class="card-title">Metode Riset Sistem Informasi</div>
                 <div class="card-code">[MSIM202]</div>
@@ -1158,7 +1037,7 @@
             <div class="schedule-card teal">
                 <div class="card-header">
                     <div class="card-day">Sabtu</div>
-                    <div class="card-time">10.30 - 11.30</div>
+                    <div class="card-time">10.30 - 12.30</div>
                 </div>
                 <div class="card-title">Manajemen Pemasaran Strategis</div>
                 <div class="card-code">[MSIM204]</div>
@@ -1203,7 +1082,7 @@
             <div class="schedule-card teal">
                 <div class="card-header">
                     <div class="card-day">Sabtu</div>
-                    <div class="card-time">12.30 - 13.30</div>
+                    <div class="card-time">13.30 - 15.30</div>
                 </div>
                 <div class="card-title">Manajemen dan Strategi Bisnis Digital</div>
                 <div class="card-code">[MSIM205]</div>
@@ -1253,21 +1132,21 @@
             <div class="schedule-card blue">
                 <div class="card-header">
                     <div class="card-day">Kamis</div>
-                    <div class="card-time">16.00 - 17.00</div>
+                    <div class="card-time">19.00 - 21.00</div>
                 </div>
-                <div class="card-title">Metode Riset Sistem Informasi</div>
-                <div class="card-code">[MSIM202]</div>
+                <div class="card-title">Manajemen Resiko Sistem Informasi</div>
+                <div class="card-code">[MSIM203]</div>
                 <div class="card-info">
                     <div class="lecturer-info-container">
-                        <img src="wendi.png" alt="Foto Dosen" class="lecturer-photo">
+                        <img src="krisna.png" alt="Foto Dosen" class="lecturer-photo">
                         <div class="lecturer-details">
                             <div class="card-info-item">
                                 <div class="icon">👨‍🏫</div>
-                                <div class="text">Prof. Ir. Wendi Usino, M.Sc., M.M., Ph.D.</div>
+                                <div class="text">Krisna Adiyarta M., M.Sc., Ph.D.</div>
                             </div>
                             <div class="lecturer-email">
                                 <div class="icon">✉️</div>
-                                <div>wendiusino@atmaluhur.ac.id</div>
+                                <div>krisna@atmaluhur.ac.id</div>
                             </div>
                             <div class="card-info-item">
                                 <div class="icon">📚</div>
@@ -1298,7 +1177,7 @@
             <div class="schedule-card purple">
                 <div class="card-header">
                     <div class="card-day">Jumat</div>
-                    <div class="card-time">16.00 - 17.00</div>
+                    <div class="card-time">19.00 - 21.00</div>
                 </div>
                 <div class="card-title">Manajemen Proyek dan Perubahan</div>
                 <div class="card-code">[MSIM201]</div>
@@ -1343,21 +1222,21 @@
             <div class="schedule-card teal">
                 <div class="card-header">
                     <div class="card-day">Sabtu</div>
-                    <div class="card-time">09.00 - 10.00</div>
+                    <div class="card-time">08.00 - 10.00</div>
                 </div>
-                <div class="card-title">Manajemen Resiko Sistem Informasi</div>
-                <div class="card-code">[MSIM203]</div>
+                <div class="card-title">Metode Riset Sistem Informasi</div>
+                <div class="card-code">[MSIM202]</div>
                 <div class="card-info">
                     <div class="lecturer-info-container">
-                        <img src="krisna.png" alt="Foto Dosen" class="lecturer-photo">
+                        <img src="wendi.png" alt="Foto Dosen" class="lecturer-photo">
                         <div class="lecturer-details">
                             <div class="card-info-item">
                                 <div class="icon">👨‍🏫</div>
-                                <div class="text">Krisna Adiyarta M., M.Sc., Ph.D.</div>
+                                <div class="text">Prof. Ir. Wendi Usino, M.Sc., M.M., Ph.D.</div>
                             </div>
                             <div class="lecturer-email">
                                 <div class="icon">✉️</div>
-                                <div>krisna@atmaluhur.ac.id</div>
+                                <div>wendiusino@atmaluhur.ac.id</div>
                             </div>
                             <div class="card-info-item">
                                 <div class="icon">📚</div>
@@ -1388,7 +1267,7 @@
             <div class="schedule-card teal">
                 <div class="card-header">
                     <div class="card-day">Sabtu</div>
-                    <div class="card-time">10.30 - 11.30</div>
+                    <div class="card-time">10.30 - 12.30</div>
                 </div>
                 <div class="card-title">Manajemen dan Strategi Bisnis Digital</div>
                 <div class="card-code">[MSIM205]</div>
@@ -1433,7 +1312,7 @@
             <div class="schedule-card teal">
                 <div class="card-header">
                     <div class="card-day">Sabtu</div>
-                    <div class="card-time">12.30 - 13.30</div>
+                    <div class="card-time">13.30 - 15.30</div>
                 </div>
                 <div class="card-title">Manajemen Pemasaran Strategis</div>
                 <div class="card-code">[MSIM204]</div>
@@ -1577,5 +1456,3 @@
     </footer>
 </body>
 </html>
-
-
